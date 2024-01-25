@@ -80,34 +80,6 @@ def DSIC ar pr v := ∀ i:F.I,
 
 def Implementable (ar : F.AllocationRule) := ∃ pr : F.PaymentRule, ∀ v, DSIC ar pr v
 
-
-lemma relation_h12(x1:ℝ )(x2:ℝ )(x3:ℝ )(x4:ℝ ):
-   x1 ≤ x2 - x3 + x4 ↔ x1 -x2 ≤ x4 - x3:= by {
-constructor
-.intro h1
- linarith
-.intro h2
- linarith
-}
-lemma relation_h13(x1:ℝ )(x2:ℝ )(x3:ℝ )(x4:ℝ )(a:ℝ ): a*x1 - a*x2 ≤ x4 - x3 ↔ a*(x1 -x2) ≤ x4 - x3:= by {
-constructor
-.intro h1
- linarith
-.intro h2
- linarith
-}
-lemma relation_h14(x1:ℝ )(x2:ℝ )(x3:ℝ )(x4:ℝ )(a:ℝ ):
- a*(x1 -x2) ≤ x4 - x3 ↔ a*(x2 -x1) ≥  x3 - x4 := by {
-constructor
-.intro h1
- linarith
-.intro h2
- linarith
-}
-lemma subnonneg_of_le (a b : ℝ) (h : a ≤ b) : a - b ≤ 0 := by {
-  linarith
-}
-
 --dsic
 lemma implementable_imp_monotone (ar :F.AllocationRule) (v : F.Valuation):
 Implementable ar → Monotone ar := by {
